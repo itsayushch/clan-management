@@ -1,6 +1,6 @@
 import { Avatar, Group, Table, Text, Flex, Paper, Divider } from '@mantine/core';
 import { ClanInfo } from '../components/ClanInfo';
-import { getClanMembers } from "../lib/ClashHandler";
+import { getClanInfo } from "../lib/ClashHandler";
 import classes from '../assets/index.module.css';
 import { Badge } from '@mantine/core';
 
@@ -87,7 +87,7 @@ export default function IndexPage({ data }: InferGetServerSidePropsType<typeof g
 
 export const getServerSideProps = (async () => {
 	// Fetch data from external API
-	const data = await getClanMembers('#29R0QLL80');
+	const data = await getClanInfo('#29R0QLL80');
 	// Pass data to the page via props
 	return { props: { data: JSON.parse(JSON.stringify(data)) as PropType } }
 }) satisfies GetServerSideProps<{ data: PropType }>
