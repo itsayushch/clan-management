@@ -1,8 +1,9 @@
 import { Avatar, Group, Table, Text, Flex, Paper, Divider } from '@mantine/core';
 import { ClanInfo } from '../components/ClanInfo';
 import { getClanInfo } from "../lib/ClashHandler";
-import classes from '../assets/index.module.css';
 import { Badge } from '@mantine/core';
+
+import classes from '../assets/index.module.css';
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import type { ClanMember, Clan } from "clashofclans.js";
@@ -17,6 +18,7 @@ const strikeColorScheme = {
 
 
 export default function IndexPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+	
 
 	const rows = data.members.toSorted((a, b) => b.townHallLevel - a.townHallLevel).map((data, index) => (
 		<Table.Tr key={data.tag} className={classes.control}>
