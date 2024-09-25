@@ -1,28 +1,22 @@
-import { Center, Container, Grid, SimpleGrid, Skeleton, Text, Title, rem } from '@mantine/core';
+import { Center, Container, Grid, Paper, SimpleGrid, Skeleton, Text, Title, rem } from '@mantine/core';
 import { getPlayer } from '../../lib/ClashHandler';
 import { Player } from 'clashofclans.js';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { PlayerInfo } from '../../components/PlayerInfo';
+import { StrikeCheckBox } from '../../components/StrikeCheckBox';
+import { StrikeModal, Strikes } from '../../types';
 
 export default function PlayerPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     return (
-        <Container my="md">
-            <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
-                <Center maw={400} h={100} bg="var(--mantine-color-gray-light)">
-                    <Text>{data.name}</Text>
-                    <Text>{data.tag}</Text>
-
-                </Center>
-                <Grid gutter="md">
-                    <Grid.Col>
-                        <Center maw={400} h={100} bg="var(--mantine-color-gray-light)">
-                            <Title order={4}>Strikes</Title>
-                            <Text>Shit Obtained</Text>
-                        </Center>
-                    </Grid.Col>
-
-                </Grid>
-            </SimpleGrid>
-        </Container>
+        <>
+            <Paper p={'xl'} m={{ base: 'xs', sm: 'xs', md: 'lg', lg: 'xl' }} shadow="xl" radius="md" style={{ overflowX: 'auto', background: 'var(--mantine-color-dark-9)' }}>
+                <PlayerInfo player={data} />
+            </Paper>
+            <Paper mb={'xl'} mx={{ base: 'xs', sm: 'xs', md: 'lg', lg: 'xl' }} shadow="xl" radius="md" p="xs" style={{ overflowX: 'auto', background: 'var(--mantine-color-dark-9)' }}>
+                {/* @ts-ignore */}
+                {(data.strikes as StrikeModal).strike[0].createdAt}
+            </Paper>
+        </>
     );
 }
 

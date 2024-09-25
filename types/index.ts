@@ -16,7 +16,7 @@ export interface StrikeModal {
 
 export interface Strikes {
     createdAt: Date;
-    strikes: number;
+    value: number;
     createdBy: ObjectId;
-    reason: string;
+    uid: number;
 }

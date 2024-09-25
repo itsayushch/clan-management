@@ -8,9 +8,9 @@ export default async function user(req: NextApiRequest, res: NextApiResponse) {
         const user = (session && (await findUser(session))) ?? null
 
 
-        res.status(200).json({ user })
+        return res.status(200).json({ user })
     } catch (error) {
         console.error(error)
-        res.status(500).end('Authentication token is invalid, please log in')
+        return res.status(500).end('Authentication token is invalid, please log in')
     }
 }

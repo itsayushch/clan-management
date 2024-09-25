@@ -7,21 +7,17 @@ import classes from '../assets/index.module.css';
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import type { ClanMember, Clan } from "clashofclans.js";
+import Router from 'next/router';
+import { strikeColorScheme } from '../assets/utils';
 
-const strikeColorScheme = {
-	'0': 'teal',
-	'1': 'yellow',
-	'2': 'yellow',
-	'3': 'orange',
-	'4': 'red'
-}
+
 
 
 export default function IndexPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	
 
 	const rows = data.members.toSorted((a, b) => b.townHallLevel - a.townHallLevel).map((data, index) => (
-		<Table.Tr key={data.tag} className={classes.control}>
+		<Table.Tr key={data.tag} className={classes.control} onClick={() => Router.push(`/player/${data.tag.replace('#', '')}`)}>
 			<Table.Td>
 				<Group gap="sm">
 					<Text size="sm" fw={500}>
@@ -42,7 +38,7 @@ export default function IndexPage({ data }: InferGetServerSidePropsType<typeof g
 							{data.name}
 						</Text>
 						<Text size="xs" c="dimmed">
-							{data.role.replace('elder', 'Elder').replace('coLeader', 'Co-Leader').replace('member', 'Member').replace('leader', 'Leader')}
+							{data.role}
 						</Text>
 					</div>
 				</Flex>
@@ -58,7 +54,7 @@ export default function IndexPage({ data }: InferGetServerSidePropsType<typeof g
 				<Group gap="sm" pl={15}>
 
 					{/* @ts-ignore */}
-					<Badge color={strikeColorScheme[data.townHallLevel - 12]} circle size="lg">{data.townHallLevel - 12}</Badge>
+					<Badge color={strikeColorScheme[data.strikes]} circle size="lg">{data.strikes}</Badge>
 				</Group>
 			</Table.Td>
 		</Table.Tr>
