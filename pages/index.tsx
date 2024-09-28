@@ -2,21 +2,19 @@ import { Avatar, Group, Table, Text, Flex, Paper, Divider } from '@mantine/core'
 import { ClanInfo } from '../components/ClanInfo';
 import { getClanInfo } from "../lib/ClashHandler";
 import { Badge } from '@mantine/core';
-
+import Router from 'next/router';
+import { getStrikeColor } from '../assets/utils';
 import classes from '../assets/index.module.css';
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import type { ClanMember, Clan } from "clashofclans.js";
-import Router from 'next/router';
-import { strikeColorScheme } from '../assets/utils';
-
-
+import type { Clan } from "clashofclans.js";
+import type { ClanMemberModal } from '../types';
 
 
 export default function IndexPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-	
 
-	const rows = data.members.toSorted((a, b) => b.townHallLevel - a.townHallLevel).map((data, index) => (
+
+	const rows = data.members.toSorted((a, b) => b.strikes - a.strikes).map((data, index) => (
 		<Table.Tr key={data.tag} className={classes.control} onClick={() => Router.push(`/player/${data.tag.replace('#', '')}`)}>
 			<Table.Td>
 				<Group gap="sm">
@@ -52,14 +50,12 @@ export default function IndexPage({ data }: InferGetServerSidePropsType<typeof g
 			</Table.Td>
 			<Table.Td>
 				<Group gap="sm" pl={15}>
-
-					{/* @ts-ignore */}
-					<Badge color={strikeColorScheme[data.strikes]} circle size="lg">{data.strikes}</Badge>
+					<Badge color={getStrikeColor(data.strikes)} circle size="lg">{data.strikes}</Badge>
 				</Group>
 			</Table.Td>
 		</Table.Tr>
 	));
-	
+
 	return (
 		<>
 			<Paper p={'xl'} m={{ base: 'xs', sm: 'xs', md: 'lg', lg: 'xl' }} shadow="xl" radius="md" style={{ overflowX: 'auto', background: 'var(--mantine-color-dark-9)' }}>
@@ -93,5 +89,5 @@ export const getServerSideProps = (async () => {
 
 interface PropType {
 	clan: Clan;
-	members: ClanMember[];
+	members: ClanMemberModal[];
 }

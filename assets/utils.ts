@@ -2,17 +2,17 @@ export const rules = [
     {
         uid: 1,
         value: 1,
-        reason: 'Ignoring mails and messages pinned by leaders.'
+        reason: 'Ignoring mails and messages pinned by leaders'
     },
     {
         uid: 2,
         value: 1,
-        reason: 'Getting incorrect # of stars by not following war mail.'
+        reason: 'Missing 3 war attacks consecutively'
     },
     {
         uid: 3,
         value: 1,
-        reason: 'Missing FWA war search (e.g. Due to lingering in CWL clan, visiting other clan etc).'
+        reason: 'Missing FWA war search (e.g. Due to lingering in CWL clan, visiting other clan etc)'
     },
     {
         uid: 4,
@@ -74,10 +74,27 @@ export const compareArrays = (a: Array<any>, b: Array<any>) => {
     }
 };
 
-export const strikeColorScheme = {
-	0: 'gray',
-	1: 'teal',
-	2: 'yellow',
-	3: 'orange',
-	4: 'red'
+export const strikeColorScheme: { [key: number]: string } = {
+    0: 'gray',
+    1: 'teal',
+    2: 'yellow',
+    3: 'orange',
+    4: 'red'
+}
+
+export function getStrikeColor(strike: number | 1 | 2 | 3 | 4) {
+    if (strike <= 4) {
+        return strikeColorScheme[strike];
+    }
+    return 'red';
+}
+
+export function getReason(uid: number) {
+    const rule = rules.find(rule => rule.uid === uid);
+    return rule?.reason;
+}
+
+export function getStrikeValue(uid: number) {
+    const rule = rules.find(rule => rule.uid === uid);
+    return rule?.value ?? 0;
 }

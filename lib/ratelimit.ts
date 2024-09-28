@@ -5,7 +5,7 @@ const rateLimitMap = new Map();
 export default function rateLimitMiddleware(handler: any) {
     return (req: NextApiRequest, res: NextApiResponse) => {
         const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-        const limit = 5; // Limiting requests to 5 per minute per IP
+        const limit = 15; // Limiting requests to 5 per minute per IP
         const windowMs = 60 * 1000; // 1 minute
 
         if (!rateLimitMap.has(ip)) {
@@ -23,7 +23,7 @@ export default function rateLimitMiddleware(handler: any) {
         }
 
         if (ipData.count >= limit) {
-            return res.status(429).send("Too Many Requests");
+            return res.status(429).send("Hold On! Too Many Requests.");
         }
 
         ipData.count += 1;
