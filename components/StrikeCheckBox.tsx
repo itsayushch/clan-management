@@ -18,8 +18,6 @@ export function StrikeCheckBox({ player }: { player: PlayerModal }) {
     const handleCheckBoxChange = (newValue: string[]) => {
         setValue(newValue)
 
-        console.log(value)
-
         if (opened && compareArrays(original, value.sort())) return close();
         if (!opened) return toggle();
 

@@ -9,10 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hapi/iron": "^7.0.1",
     "@mantine/core": "7.12.2",
     "@mantine/hooks": "7.12.2",
-    "@prisma/client": "^5.19.1",
     "@tabler/icons-react": "^3.17.0",
     "clashofclans.js": "^3.3.12",
     "cookie": "^0.6.0",
