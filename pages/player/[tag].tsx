@@ -80,7 +80,7 @@ export default function PlayerPage({ data }: InferGetServerSidePropsType<typeof 
                             gradient={{ from: 'blue', to: 'cyan', deg: 90 }}
                             pt={{ base: '50%', sm: '20%', md: '10%', lg: '5%', xl: '5%' }}
                         >
-                            You've got no strikes.
+                            {'You\'ve got no strikes.'}
                         </Text>
                     </Center>
                 )}
