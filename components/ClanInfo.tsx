@@ -56,11 +56,11 @@ export function ClanInfo({ clan }: { clan: Clan }) {
 				<Grid.Col span={2}>
 					<Group px={'lg'} preventGrowOverflow>
 						{user ? (
-							<Button fullWidth rightSection={<IconUserCircle size={20} />}  onClick={() => Router.push('/api/logout')}>Log Out</Button>
+							<Button fullWidth rightSection={<IconUserCircle size={20} />} onClick={() => Router.push('/api/logout')}>Log Out</Button>
 						) : (
 							<Button fullWidth rightSection={<IconUserCircle size={20} />} onClick={open}>Admin Login</Button>
 						)}
-						<Button fullWidth rightSection={<IconExternalLink size={20} />} variant='outline'>Strike Rules</Button>
+						<Button fullWidth rightSection={<IconExternalLink size={20} />} onClick={() => window.open('https://rumbling-hardhat-2cc.notion.site/Strike-System-Illuminati-1042668f531180cba369cbcc19bbc8a2', '_blank')} variant='outline'>Strike Rules</Button>
 					</Group>
 				</Grid.Col>
 
