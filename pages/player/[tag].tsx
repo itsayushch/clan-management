@@ -38,12 +38,12 @@ export default function PlayerPage({ data }: InferGetServerSidePropsType<typeof 
             <Table.Td>{strike.createdBy.inGameName} ({strike.createdBy.playerTag})</Table.Td>
             <Table.Td>{dayjs(strike.createdAt).format('DD MMM YYYY')}</Table.Td>
             <Table.Td>
-                <Group gap="sm" pl={15}>
+                <Group gap="xl" wrap="nowrap">
                     <Badge color={getStrikeColor(strike.value)} circle size="lg">{strike.value}</Badge>
                     <IconTrash
                         display={user ? 'block' : 'none'}
                         onClick={() => handleDelete(strike.uid)}
-                        style={{ marginLeft: '2rem', cursor: 'pointer' }}
+                        style={{ cursor: 'pointer' }}
                         stroke={1.5}
                         color="var(--mantine-color-red-5)"
                     />
@@ -92,7 +92,7 @@ export default function PlayerPage({ data }: InferGetServerSidePropsType<typeof 
 
 export const getServerSideProps = (async (context) => {
     // Fetch data from external API
-    const data = await getPlayer(`#${context.query.tag}`);
+    const data = await getPlayer(`#${context.query.tag}`.toUpperCase());
     // Pass data to the page via props
     return { props: { data: JSON.parse(JSON.stringify(data)) as PlayerModal } }
 }) satisfies GetServerSideProps<{ data: PlayerModal }>
