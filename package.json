@@ -1,5 +1,5 @@
 {
-  "name": "mantine-minimal-next-template",
+  "name": "illuminati",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -39,6 +39,5 @@
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "5.5.2"
-  },
-  "packageManager": "yarn@4.4.1"
+  }
 }
