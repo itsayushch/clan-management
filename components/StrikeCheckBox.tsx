@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Center, Checkbox, Group, SimpleGrid, Stack, Text, Dialog, Button, TextInput } from '@mantine/core';
-import classes from '../assets/StrikeCheckBox.module.css';
-import { rules, compareArrays } from '../assets/utils';
-import { PlayerModal } from '../types';
+import classes from '#assets/StrikeCheckBox.module.css';
+import { rules, compareArrays } from '#assets/utils';
+import { PlayerModal } from '#types';
 
 
 

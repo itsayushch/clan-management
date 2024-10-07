@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
-import { UserModel } from '../types';
-import { db } from './Database';
+import { UserModel } from '#types';
+import { db } from '#lib/Database';
 
 export async function createUser({ username, password, playerTag }: { username: string; password: string; playerTag: string }) {
     await db.collection('admins').insertOne({

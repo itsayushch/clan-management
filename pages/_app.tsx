@@ -4,7 +4,7 @@ import 'nprogress/nprogress.css';
 import Head from "next/head";
 import NProgress from 'nprogress';
 import { MantineProvider } from "@mantine/core";
-import { theme, variantColorResolver } from "../assets/theme";
+import { theme, variantColorResolver } from "#assets/theme";
 import Router from "next/router";
 
 NProgress.configure({ showSpinner: false });

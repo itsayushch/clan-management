@@ -1,13 +1,13 @@
 import { Group, Paper, Badge, Table, Text, Center } from '@mantine/core';
-import { getPlayer } from '../../lib/ClashHandler';
+import { getPlayer } from '#lib/ClashHandler';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { PlayerInfo } from '../../components/PlayerInfo';
-import { PlayerModal, StrikeModal } from '../../types';
-import classes from '../../assets/index.module.css';
-import { getReason, getStrikeColor } from '../../assets/utils';
+import { PlayerInfo } from '#components/PlayerInfo';
+import { PlayerModal } from '#types';
+import classes from '#assets/index.module.css';
+import { getReason, getStrikeColor } from '#assets/utils';
 import dayjs from 'dayjs';
 import { IconTrash } from '@tabler/icons-react';
-import { useUser } from '../../lib/hooks';
+import { useUser } from '#lib/hooks';
 
 export default function PlayerPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const user = useUser();

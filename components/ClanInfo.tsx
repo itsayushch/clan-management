@@ -1,11 +1,11 @@
 import { Avatar, Text, Group, Grid, Button, Modal } from '@mantine/core';
 import { IconExternalLink, IconUserCircle } from '@tabler/icons-react';
-import { useUser } from '../lib/hooks';
+import { useUser } from '#lib/hooks';
 
 
 import type { Clan } from 'clashofclans.js';
 import { useDisclosure } from '@mantine/hooks';
-import { LoginForm } from './LoginForm';
+import { LoginForm } from '#components/LoginForm';
 import Router from 'next/router';
 
 export function ClanInfo({ clan }: { clan: Clan }) {

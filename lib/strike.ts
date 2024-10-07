@@ -1,5 +1,5 @@
-import { StrikeModal, StrikePostData, UserModel } from '../types';
-import { db } from './Database';
+import { StrikeModal, StrikePostData, UserModel } from '#types';
+import { db } from '#lib/Database';
 
 export async function updateStrike({ playerTag, strikeData }: { playerTag: string; strikeData: StrikePostData[] }) {
     return db.collection('strikes').updateOne({ playerTag }, {

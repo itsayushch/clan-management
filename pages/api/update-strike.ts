@@ -1,10 +1,10 @@
-import { getLoginSession } from '../../lib/auth'
-import { findUser } from '../../lib/admin'
+import { getLoginSession } from '#lib/auth'
+import { findUser } from '#lib/admin'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { deleteStrike, updateStrike } from '../../lib/strike';
-import { getStrikeValue } from '../../assets/utils';
-import { StrikePostData, UserModel } from '../../types';
-import rateLimitMiddleware from '../../lib/ratelimit';
+import { deleteStrike, updateStrike } from '#lib/strike';
+import { getStrikeValue } from '#assets/utils';
+import { StrikePostData, UserModel } from '#types';
+import rateLimitMiddleware from '#lib/ratelimit';
 
 
 const handler = async function strike(req: NextApiRequest, res: NextApiResponse) {

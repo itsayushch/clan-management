@@ -1,7 +1,7 @@
 import { Client } from "clashofclans.js";
-import { getAllStrikes, getStrike } from "./strike";
+import { getAllStrikes, getStrike } from "#lib/strike";
 
-const client = new Client({ baseURL: 'https://cocproxy.royaleapi.dev/v1', keys: ['eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImMzN2NkZTY0LTgwZmItNGQ0NS04OTVhLWNmNmYxY2VlYTVhMyIsImlhdCI6MTcyNjYwNTc4OSwic3ViIjoiZGV2ZWxvcGVyLzY4MjIzMWJmLTM4YmYtNmJjZi1lYTE0LTliMWIyNDNmNzBhMCIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjQ1Ljc5LjIxOC43OSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.pN8oy60Dup_bDRyIOCGSm_uIvcfjxLMvTpkByCq9p0tTDQNEtl20XaxCNdJZC5CDOdjkid3jx1jHzz8fLg0ynQ'] });
+const client = new Client({ baseURL: process.env?.BASE_URL ?? 'https://api.clashofclans.com/v1', keys: [process.env.API_TOKEN!] });
 
 export const getClanInfo = async (clanTag: string) => {
     const clan = await client.getClan(clanTag);

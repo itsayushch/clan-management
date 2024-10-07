@@ -1,11 +1,11 @@
 import passport from 'passport'
 import { createRouter } from "next-connect";
-import { localStrategy } from '../../lib/password-local'
-import { setLoginSession } from '../../lib/auth'
-import { UserModel } from '../../types';
+import { localStrategy } from '#lib/password-local'
+import { setLoginSession } from '#lib/auth'
+import { UserModel } from '#types';
 import { IncomingMessage, ServerResponse } from 'http';
 import { NextApiRequest, NextApiResponse } from 'next';
-import rateLimitMiddleware from "../../lib/ratelimit";
+import rateLimitMiddleware from "#lib/ratelimit";
 
 async function authenticate(method: string | string[], req: NextApiRequest, res: NextApiResponse): Promise<UserModel> {
     return new Promise((resolve, reject) => {

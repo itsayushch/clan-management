@@ -4,9 +4,8 @@ import {
     Button,
     LoadingOverlay
 } from '@mantine/core';
-import { useUser } from '../lib/hooks';
+import { useUser } from '#lib/hooks';
 import { useState } from 'react';
-import Router from 'next/router';
 
 
 export function LoginForm() {

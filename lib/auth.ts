@@ -1,4 +1,4 @@
-import { MAX_AGE, setTokenCookie, getTokenCookie } from './auth-cookies'
+import { MAX_AGE, setTokenCookie, getTokenCookie } from '#lib/auth-cookies'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { IncomingMessage, ServerResponse } from 'http'

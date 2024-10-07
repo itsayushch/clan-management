@@ -1,5 +1,5 @@
-import { getLoginSession } from '../../lib/auth'
-import { findUser } from '../../lib/admin'
+import { getLoginSession } from '#lib/auth'
+import { findUser } from '#lib/admin'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function user(req: NextApiRequest, res: NextApiResponse) {

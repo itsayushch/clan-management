@@ -1,15 +1,14 @@
 import { Text, Group, Grid, Button, Modal, Image, Badge } from '@mantine/core';
 import { IconArrowLeft, IconPencil, IconUserCircle } from '@tabler/icons-react';
-import { useUser } from '../lib/hooks';
+import { useUser } from '#lib/hooks';
 
 
-import type { Player } from 'clashofclans.js';
 import { useDisclosure } from '@mantine/hooks';
-import { LoginForm } from './LoginForm';
+import { LoginForm } from '#components/LoginForm';
 import Router from 'next/router';
-import { StrikeCheckBox } from './StrikeCheckBox';
-import { getStrikeColor } from '../assets/utils';
-import { PlayerModal } from '../types';
+import { StrikeCheckBox } from '#components/StrikeCheckBox';
+import { getStrikeColor } from '#assets/utils';
+import { PlayerModal } from '#types';
 
 export function PlayerInfo({ player }: { player: PlayerModal }) {
     const [opened1, { open: open1, close: close1 }] = useDisclosure(false);

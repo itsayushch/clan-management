@@ -1,6 +1,6 @@
 import Local from 'passport-local'
-import { findUser, validatePassword } from './admin'
-import { UserModel } from '../types'
+import { findUser, validatePassword } from '#lib/admin'
+import { UserModel } from '#/types'
 
 export const localStrategy = new Local.Strategy((username: string, password: string, done) => {
     findUser({ username })

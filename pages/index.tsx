@@ -1,14 +1,14 @@
 import { Avatar, Group, Table, Text, Flex, Paper, Divider } from '@mantine/core';
-import { ClanInfo } from '../components/ClanInfo';
-import { getClanInfo } from "../lib/ClashHandler";
+import { ClanInfo } from '#components/ClanInfo';
+import { getClanInfo } from "#lib/ClashHandler";
 import { Badge } from '@mantine/core';
 import Router from 'next/router';
-import { getStrikeColor } from '../assets/utils';
-import classes from '../assets/index.module.css';
+import { getStrikeColor } from '#assets/utils';
+import classes from '#assets/index.module.css';
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import type { Clan } from "clashofclans.js";
-import type { ClanMemberModal } from '../types';
+import type { ClanMemberModal } from '#types';
 
 
 export default function IndexPage({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
